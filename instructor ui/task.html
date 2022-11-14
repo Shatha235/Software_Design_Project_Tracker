@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="Dashbord.css">
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>Tasks</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
+  <link href="assets/css/demo.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
+
+
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- fontawesome icon installition -->
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+  <!-- bootstrap installition  js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <style media="screen">
+    table {
+      width: 50%;
+      border: 5px solid #ddd;
+      < !-- bottom: 500px;
+      -->padding: 40px;
+      margin-left: 4px;
+    }
+
+    th,
+    td {
+      text-align: center;
+      padding: 100px;
+      top: 100px;
+    }
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <body onload="startTime()">
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="fa-solid fa-p"></i>
+        <span class="logo_name">PROJECT TRACKER</span>
+      </div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="Dashbord.html" class="active">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name"> Dashbord
+          </a>
+        </li>
+        <li>
+          <a href="Team.html">
+            <i class='bx bx-user'></i>
+            <span class="links_name">Team </span>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="FeedbackIns.html">
+            <i class='bx bx-message'></i>
+            <span class="links_name">Feedback</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <section class="home-section">
+      <nav>
+        <div class="sidebar-button">
+          <i class='bx bx-menu sidebarBtn'></i>
+          <span class="dashboard">Tasks </span>
+        </div>
+      </nav>
+
+      <div class="wrapper">
+
+        <div class="container-fluid">
+          <div class="row" style="top=100px">
+            <!-- <div class="col-md-8 col-md-offset-2"> -->
+            <div class="col-md-12"></div>
+            <div class="col-md-12">
+              <div class="description">
+
+                <h2>Tasks </h2>
+              </div>
+
+              <!--
+         Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
+         Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
+       -->
+              <div class="logo-container">
+                <div class="logo">
+                  <img src="pt2.jpg">
+                </div>
+              </div>
+              <!-- <div class="toolbar">
+                <button id="alertBtn" class="btn btn-default">Alert</button>
+              </div> -->
+
+              <table id="fresh-table" class="table">
+                <thead>
+                  <th data-field="id">Phases</th>
+                  <th data-field="tasks" data-sortable="true">Tasks</th>
+                  <th data-field="roles" data-sortable="true">Roles</th>
+                  <th data-field="start date" data-sortable="true">Start date </th>
+                  <th data-field="end date" data-sortable="true">End date</th>
+                  <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>"Phase 1"</strong></td>
+                    <td><strong>"Analyze Phase"</strong></td>
+                    <td><strong>"All team member"</strong></td>
+                    <td><strong>"20/3/2022"</strong></td>
+                    <td><strong>"31/3/2022"</strong></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>First meeting to collect information and share ideas</td>
+                    <td>Analyzer,Time Keeper,Recorder</td>
+                    <td>20/3/2022</td>
+                    <td>21/3/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Assign roles</td>
+                    <td>Leader</td>
+                    <td>21/3/2022</td>
+                    <td>21/3/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Write the initial tentative project plan</td>
+                    <td>Dina,Reham,Shatha,Eslam</td>
+                    <td>22/3/2022</td>
+                    <td>29/3/2022</td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                    <td>Write the initial requirements document</td>
+                    <td>Shatha</td>
+                    <td>22/3/2022</td>
+                    <td>29/3/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Write the initial problem description document </td>
+                    <td>Amany,Dua'a,Wala'a</td>
+                    <td>22/3/2022</td>
+                    <td>29/3/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>A meeting to wrap up things and adding last touches to the mentioned documents</td>
+                    <td>All team member</td>
+                    <td>30/3/2022</td>
+                    <td>31/3/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Submit files to e-learning</td>
+                    <td>Leader</td>
+                    <td>31/3/2022</td>
+                    <td>1/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><strong>"Phase 2"</strong></td>
+                    <td><strong>"Design phase"</strong></td>
+                    <td><strong>"All team members"</strong></td>
+                    <td><strong>"1/4/2022"</strong></td>
+                    <td><strong>"19/4/2022"</strong></td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                    <td>First meeting to collect information and share ideas</td>
+                    <td>All team members</td>
+                    <td>1/4/2022</td>
+                    <td>2/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Create Class diagram</td>
+                    <td>Shatha,Eslam</td>
+                    <td>2/4/2022</td>
+                    <td>6/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Create Use case diagram</td>
+                    <td>Reham</td>
+                    <td>2/4/2022</td>
+                    <td>7/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Create sequence diagram</td>
+                    <td>Amany,Dina</td>
+                    <td>10/4/2022</td>
+                    <td>17/4/2022</td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                    <td>Create ER diagram</td>
+                    <td>Dua'a,Wala'a</td>
+                    <td>10/4/2022</td>
+                    <td>14/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Select Software Architecture</td>
+                    <td>Shatha,Eslam</td>
+                    <td>10/4/2022</td>
+                    <td>15/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Write the initial problem description document</td>
+                    <td>All team member</td>
+                    <td>16/4/2022</td>
+                    <td>17/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>A meeting to wrap up things and adding last touches to the mentioned documents</td>
+                    <td>All team member</td>
+                    <td>18/4/2022</td>
+                    <td>19/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Submit files to e-learning</td>
+                    <td>Leader</td>
+                    <td>20/4/2022</td>
+                    <td>21/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><strong>"Phase 3"</strong></td>
+                    <td><strong>"Implementation Phase"</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+
+
+                  <tr>
+                    <td></td>
+                    <td>First meeting to collect information and share ideas</td>
+                    <td>All team member</td>
+                    <td>24/4/2022</td>
+                    <td>25/4/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Create the required database according to the submitted ER diagram in the design phase</td>
+                    <td>Dina,Amany</td>
+                    <td>10/5/2022</td>
+                    <td>27/5/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Create the user interface </td>
+                    <td>Shatha,Eslam,Dua'a,Wala'a,Reham</td>
+                    <td>3/5/2022</td>
+                    <td>26/5/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Create the implementation of the system sevices </td>
+                    <td>Shatha,Eslam,Dua'a,Wala'a,Reham</td>
+                    <td>3/5/2022</td>
+                    <td>26/5/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Create sequence diagram, it shows object interactions arranged in time sequence in the field of software engineering</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>A meeting to wrap up things and adding last touches to the mentioned documents</td>
+                    <td>All team member</td>
+                    <td>27/5/2022</td>
+                    <td>27/5/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Submit files to e-learning</td>
+                    <td>Leader</td>
+                    <td>28/5/2022</td>
+                    <td>29/5/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><strong>"Phase 4"</strong></td>
+                    <td><strong>"System Evaluation and final report phase"</strong></td>
+                    <td><strong>"All team member"</strong></td>
+                    <td><strong>"22/5/2022"</strong></td>
+                    <td><strong>"8/6/2022"</strong></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>First meeting to test our system and document</td>
+                    <td>All team member</td>
+                    <td>1/6/2022</td>
+                    <td>2/6/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Meeting to solve the problem if we find in our system</td>
+                    <td>All team member</td>
+                    <td>2/6/2022</td>
+                    <td>3/6/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>A meeting to wrap up things and adding last touchs to the mentioned documents</td>
+                    <td>All team member</td>
+                    <td>3/6/2022</td>
+                    <td>4/6/2022</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Submit files to e-learning</td>
+                    <td>Leader</td>
+                    <td>4/6/2022</td>
+                    <td>5/6/2022</td>
+                    <td></td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <!-- <div class="fixed-plugin" style="top: 300px">
+  <div class="dropdown open">
+    <a href="#" data-toggle="dropdown">
+    <i class="fa fa-cog fa-2x"> </i>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="header-title">Adjustments</li>
+      <li class="adjustments-line">
+        <a href="javascript:void(0)" class="switch-trigger">
+          <p>Full Background</p>
+          <div class="switch"
+            data-on-label="ON"
+            data-off-label="OFF">
+            <input type="checkbox" checked data-target="section-header" data-type="parallax"/>
+          </div>
+          <div class="clearfix"></div>
+        </a>
+      </li>
+      <li class="adjustments-line">
+        <a href="javascript:void(0)" class="switch-trigger">
+          <p>Colors</p>
+          <div class="pull-right">
+            <span class="badge filter badge-blue" data-color="blue"></span>
+            <span class="badge filter badge-azure" data-color="azure"></span>
+            <span class="badge filter badge-green" data-color="green"></span>
+            <span class="badge filter badge-orange active" data-color="orange"></span>
+            <span class="badge filter badge-red" data-color="red"></span>
+          </div>
+          <div class="clearfix"></div>
+        </a>
+      </li>
+      <li class="header-title">Layouts</li>
+      <li class="active">
+        <a class="img-holder" href="compact-table.html">
+          <img src="assets/img/compact.jpg">
+          <h5>Compact Table</h5>
+        </a>
+      </li> -->
+      <!-- <li>
+        <a class="img-holder" href="full-screen-table.html">
+          <img src="assets/img/full.jpg">
+          <h5>Full Screen Table</h5>
+        </a>
+      </li>
+      <li>
+        <div class="">
+          <a href="fresh-table-tutorial.html" target="_blank" class="btn btn-default btn-block btn-fill">Tutorial</a>
+        </div>
+      </li>
+      <li>
+        <div class="">
+          <a href="http://www.creative-tim.com/product/fresh-bootstrap-table" target="_blank" class="btn btn-info btn-block btn-fill">Download, it's free!</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div> -->
+
+  </body>
+
+
+  <script type="text/javascript">
+    var $table = $('#fresh-table')
+    window.operateEvents = {
+      'click .like': function(e, value, row, index) {
+        alert('You click like icon, row: ' + JSON.stringify(row))
+        console.log(value, row, index)
+      },
+      'click .edit': function(e, value, row, index) {
+        alert('You click edit icon, row: ' + JSON.stringify(row))
+        console.log(value, row, index)
+      },
+
+    }
+
+    function operateFormatter(value, row, index) {
+      return [
+        '<a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">',
+        '<i class="fa fa-heart"></i>',
+        '</a>',
+        '<a rel="tooltip" title="Edit" class="table-action edit" href="javascript:void(0)" title="Edit">',
+        '<i class="fa fa-edit"></i>',
+        '</a>',
+
+      ].join('')
+    }
+
+    $(function() {
+      $table.bootstrapTable({
+        classes: 'table table-hover table-striped',
+        toolbar: '.toolbar',
+        search: true,
+        showRefresh: true,
+        // showToggle: true,
+        showColumns: true,
+        pagination: true,
+        striped: true,
+        sortable: true,
+        pageSize: 8,
+        pageList: [8, 10, 25, 50, 100],
+
+        formatShowingRows: function(pageFrom, pageTo, totalRows) {
+          return ''
+        },
+        formatRecordsPerPage: function(pageNumber) {
+          return pageNumber + ' rows visible'
+        }
+      })
+
+    })
+
+    $('#sharrreTitle').sharrre({
+      template: '',
+      enableHover: false,
+      enableTracking: true,
+      enableTracking: true,
+      url: location.href
+    })
+  </script>
+
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })
+    (window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga')
+
+    ga('create', 'UA-46172202-1', 'auto')
+    ga('send', 'pageview')
+  </script>
+
+</html>
